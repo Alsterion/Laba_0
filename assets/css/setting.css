@@ -1,0 +1,218 @@
+/* ------------ Global Styles ------------ */ 
+  /* Importing Fonts */ 
+  @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Big+Shoulders+Stencil+Display:wght@400;500;600&display=swap');
+  @import url('https://fonts.cdnfonts.com/css/fastrace');
+  @import url('https://fonts.googleapis.com/css2?family=Sirin+Stencil&display=swap'); 
+/* Variables */ 
+  :root{
+    /* FONT */
+    --font: 'Big Shoulders Stencil Display', sans-serif;
+    --font-profile-header: 'FASTRACE', sans-serif;
+    --font-profile-social: 'Sirin Stencil', sans-serif;
+
+    /* Colors */
+    --body-color: rgb(22,25,27);
+    --sidebar-color: rgb(38,42,46);
+    --primary-color: rgb(30,34,35);
+    --primary-color-light: rgb(30,34,35);
+    --toggle-color: #e4e9f7;
+    --text-color: #e4e9f7;
+    --header-color: #8ae3d5;
+
+    --shadow-li: 0 0 20px rgb(72, 210, 206);
+    --shadow-animation-1: #8ae3d5;
+    --shadow-animation-2: rgb(72, 210, 206);
+
+    /* ------------ Transition ------------ */
+    --tran-02: all 0.2 ease;
+    --tran-03: all 0.3 ease;
+    --tran-04: all 0.4 ease;
+    --tran-05: all 0.5 ease;
+  }
+/* Base Styles */ 
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+ 
+/* ------------ Body Styles ------------ */ 
+body{
+  height: 100vh;
+  background: var(--body-color);
+  transition: var(--tran-04);
+  overflow: hidden;
+}
+/* ------------ Body Light ------------ */
+body.Light{
+  --body-color: #e4e9f7;
+  --sidebar-color: #fff;
+  --primary-color: #8ae3d5;
+  --primary-color-light: #f6f5ff;
+  --toggle-color: #ddd;
+  --text-color: #707070;
+  --header-color: #8ae3d5;
+  overflow: hidden;
+} 
+ 
+/* ------------ Flex Container Styles ------------ */ 
+.Flex-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+} 
+ 
+/* ------------ Sidebar Styles ------------ */ 
+.Sidebar { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    width: 213px; 
+    padding: 10px 14px; 
+    background: var(--sidebar-color); 
+    transition: var(--tran-05); 
+    font-family: var(--font); 
+    z-index: 100; 
+} 
+ 
+.Sidebar.close { 
+    width: 82px; 
+} 
+ 
+.Sidebar::after { 
+  position: absolute;
+  content: '';
+  top: 90px;
+  right: 0;
+  width: 12px;
+  height: 330px;
+  transform: rotate(0deg);
+  background: var(--body-color);
+  z-index: 101;
+} 
+ 
+/* ------------ Asidebar Styles ------------ */ 
+.Asidebar { 
+  position: fixed;
+  top: 78px;
+  right: 0;
+  height: 100%;
+  width: 213px;
+  padding: 10px 14px;
+  background: var(--sidebar-color);
+  transition: var(--tran-05);
+  font-family: var(--font);
+  z-index: 100;
+} 
+ 
+.Asidebar.close { 
+  width: 82px;
+} 
+ 
+.Asidebar::after { 
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 342px;
+  background: var(--body-color);
+  z-index: 101;
+} 
+ 
+/* ------------ SearchBar Styles ------------ */ 
+.SearchBar { 
+  position: fixed;
+  top: 0px;
+  left: 82px;
+  height: 90px;
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--sidebar-color);
+  transition: var(--tran-05);
+  font-family: var(--font);
+  z-index: 10;
+} 
+
+.SearchBar.close{
+  width: 82px;
+}
+
+.SearchBar::after{
+  position: absolute;
+  content: '';
+  bottom: 0px;
+  left: 130px;
+  right: 0;
+  width: calc(900px+40vh);
+  height: 12px;
+  background: var(--body-color);
+      -webkit-transform: skew(-40deg);
+          -moz-transform: skew(40deg);
+              -o-transform: skew(40deg);
+  transform: skew(-40deg);
+  z-index: 101;
+}
+ 
+/* ------------ Main Content Styles ------------ */ 
+.home{
+  position: relative;
+  height: 100vh;
+  padding-top: 90px;
+  width: 100%;
+  overflow-y: scroll;
+  font-family: var(--font);
+  background: var(--body-color);
+  transition: var(--tran-05);
+}
+  .Sidebar.close ~ .home{
+      left: 82px;
+      width: 100%;
+  }
+/** Pulsate-animation **/
+@keyframes pulsate-toggle {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0 0 5px var(--shadow-animation-1) , 0 0 15px var(--shadow-animation-2);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@keyframes pulsate-button {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0 0 5px var(--shadow-animation-1) , 0 0 15px var(--shadow-animation-2);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@keyframes pulsate-hexagon { 
+  0% { 
+      box-shadow: none; 
+  } 
+  50% { 
+      box-shadow: none, 0 0 5px var(--shadow-animation-1) , 0 0 15px var(--shadow-animation-2); 
+  } 
+  100% { 
+      box-shadow: none; 
+  } 
+}
+@keyframes pulsate-logo { 
+  0% { 
+      box-shadow: none; 
+  } 
+  50% { 
+      box-shadow: none, 0 0 5px var(--shadow-animation-1) , 0 0 15px var(--shadow-animation-2); 
+  } 
+  100% { 
+      box-shadow: none; 
+  } 
+}
